@@ -2,7 +2,7 @@ var builder = require('botbuilder');
 var request = require('request');
 
 const library = new builder.Library('ShareFolder');
-var SahreFolderUrl = "http://gaia:8181/AutomationJobs/webresources/items";
+var SahreFolderUrl = "http://125.63.77.20:4444/AutomationJobs/webresources/items";
 
 library.dialog("ShareFolderDialog", [
     function (session) {
