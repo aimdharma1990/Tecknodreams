@@ -2,8 +2,8 @@ var builder = require('botbuilder');
 var request = require('request');
 
 const library = new builder.Library('resetPassword');
-var passwordChangeUrl = "http://125.63.77.20:4444/AutomationJobs/webresources/items";
-var userNameCheckUrl = 'http://125.63.77.20:4444/AutomationJobs/webresources/items/GetUserDetail/';
+var passwordChangeUrl = "http://125.63.77.24:4444/AutomationJobs/webresources/items";
+var userNameCheckUrl = 'http://125.63.77.24:4444/AutomationJobs/webresources/items/GetUserDetail/';
 library.dialog('resetDialog', [
     (session) => {
         builder.Prompts.text(session, 'Please enter your LoginID:', {
