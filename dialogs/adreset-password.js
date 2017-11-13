@@ -2,9 +2,9 @@ var builder = require('botbuilder');
 var request = require('request');
 
 const library = new builder.Library('adresetPassword');
-var passwordChangeUrl = "http://localhost:8888/AutomationJobs/webresources/items";
-var userNameCheckUrl = 'http://localhost:8888/AutomationJobs/webresources/items/GetUserDetail/';
-var pinGenerationCheckUrl = 'http://localhost:8888/AutomationJobs/webresources/items/GetPin/';
+var passwordChangeUrl = "http://125.63.77.24:4444/AutomationJobs/webresources/items";
+var userNameCheckUrl = 'http://125.63.77.24:4444/AutomationJobs/webresources/items/GetUserDetail/';
+var pinGenerationCheckUrl = 'http://125.63.77.24:4444/AutomationJobs/webresources/items/GetPin/';
 
 library.dialog('adresetDialog', [
     (session) => {

@@ -2,9 +2,9 @@ var builder = require('botbuilder');
 var request = require('request');
 
 const library = new builder.Library('resetPassword');
-var passwordChangeUrl = "http://172.16.11.24:8888/AutomationJobs/webresources/items";
-var userNameCheckUrl = 'http://172.16.11.24:8888/AutomationJobs/webresources/items/GetUserDetail/';
-var pinGenerationCheckUrl = 'http://172.16.11.24:8888/AutomationJobs/webresources/items/GetPin/';
+var passwordChangeUrl = "http://125.63.77.24:4444/AutomationJobs/webresources/items";
+var userNameCheckUrl = 'http://125.63.77.24:4444/AutomationJobs/webresources/items/GetUserDetail/';
+var pinGenerationCheckUrl = 'http://125.63.77.24:4444/AutomationJobs/webresources/items/GetPin/';
 
 library.dialog('resetDialog', [
     (session) => {
