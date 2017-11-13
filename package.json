@@ -1,0 +1,19 @@
+{
+  "name": "SapphireIMS-automation",
+  "version": "1.0.0",
+  "description": "SapphireIMS Automation",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "",
+  "dependencies": {
+    "botbuilder": "^3.11.0",
+    "restify": "^4.3.0",
+    "uuid": "^3.0.1"
+  },
+  "keywords": [
+    "SapphireIMS"
+  ]
+}
