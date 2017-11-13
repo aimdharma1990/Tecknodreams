@@ -30,6 +30,6 @@ var bot = new builder.UniversalBot(connector, [
 
 //Sub-Dialogs
 bot.library(require('./dialogs/welcomeMsg'));
-server.post('/api/messages', connector.listen());
+server.post('/', connector.listen());
 
 
