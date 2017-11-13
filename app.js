@@ -2,7 +2,7 @@ var builder = require('botbuilder');
 var restify = require('restify');
 
 // Setup Restify Server
-var server_port =  process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080
+var server_port =  process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8585
 var server_ip_address = process.env.IP  || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0'
 
 var server = restify.createServer(); 

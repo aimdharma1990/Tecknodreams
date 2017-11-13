@@ -1,12 +1,12 @@
 var builder = require('botbuilder');
 var request = require('request');
 
-const library = new builder.Library('resetPassword');
-var passwordChangeUrl = "http://172.16.11.24:8888/AutomationJobs/webresources/items";
-var userNameCheckUrl = 'http://172.16.11.24:8888/AutomationJobs/webresources/items/GetUserDetail/';
-var pinGenerationCheckUrl = 'http://172.16.11.24:8888/AutomationJobs/webresources/items/GetPin/';
+const library = new builder.Library('adresetPassword');
+var passwordChangeUrl = "http://localhost:8888/AutomationJobs/webresources/items";
+var userNameCheckUrl = 'http://localhost:8888/AutomationJobs/webresources/items/GetUserDetail/';
+var pinGenerationCheckUrl = 'http://localhost:8888/AutomationJobs/webresources/items/GetPin/';
 
-library.dialog('resetDialog', [
+library.dialog('adresetDialog', [
     (session) => {
         builder.Prompts.text(session, 'Please enter your LoginID:', {
             retryPrompt: 'The value you entered is not a valid LoginID. Please try again:',
@@ -125,7 +125,7 @@ library.dialog('resetDialog', [
 
         request.post({
             url: passwordChangeUrl,
-            json: {"nJobTypeID": 1, "jobName": "", "jobParamsList": jobParamsList},
+            json: {"nJobTypeID": 17008, "jobName": "", "jobParamsList": jobParamsList},
             headers: {'User-Agent': 'request'}
         }, (err, res, data) => {
             if (err) {

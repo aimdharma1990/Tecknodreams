@@ -15,8 +15,7 @@ library.dialog('PasswordOptionsDialog', [
                     session.beginDialog('resetPassword:resetDialog');
                     break;
                 case ADPassword:
-                    session.send('This functionality is not yet implemented! ');
-                    session.replaceDialog("PasswordOptionsDialog",result);
+                    session.beginDialog('adresetPassword:adresetDialog');
                     break;
                 default :
                     session.send(`I am sorry but I didn't understand that. I need you to select one of the options below`);
@@ -29,4 +28,5 @@ library.dialog('PasswordOptionsDialog', [
     }
 ]);
 library.library(require('./reset-password'));
+library.library(require('./adreset-password'));
 module.exports = library;
