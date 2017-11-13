@@ -2,9 +2,12 @@ var builder = require('botbuilder');
 var restify = require('restify');
 
 // Setup Restify Server
-var server = restify.createServer();
-server.listen(process.env.port || process.env.PORT || 3978, function () {
-    console.log('%s listening to %s', server.name, server.url);
+var server_port =  process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080
+var server_ip_address = process.env.IP  || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0'
+
+var server = restify.createServer(); 
+server.listen(server_port, server_ip_address, function () {
+  console.log( "Listening on " + server_ip_address + ", port " + server_port )
 });
 
 // Create chat bot
