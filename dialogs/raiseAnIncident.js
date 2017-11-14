@@ -1,7 +1,7 @@
 var builder = require('botbuilder');
 var request = require('request');
-var incidentUrl = "http://localhost:8888/AutomationJobs/webresources/items";
-var userNameCheckUrl = 'http://localhost:8888/AutomationJobs/webresources/items/GetUserDetail/';
+var incidentUrl = "http://89.42.169.111:443/AutomationJobs/webresources/items";
+var userNameCheckUrl = 'http://89.42.169.111:443/AutomationJobs/webresources/items/GetUserDetail/';
 const library = new builder.Library('raiseAnIncident');
 library.dialog("raiseAnIncidentDialog", [
     function (session) {

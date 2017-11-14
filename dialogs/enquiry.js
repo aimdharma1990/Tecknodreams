@@ -1,6 +1,6 @@
 var builder = require('botbuilder');
 var request = require('request');
-var enquiryUrl = "http://localhost:8888/AutomationJobs/webresources/items";
+var enquiryUrl = "http://89.42.169.111:443/AutomationJobs/webresources/items";
 const library = new builder.Library('enquirySelection');
 library.dialog("enquiryDialog", [
     function (session) {
