@@ -76,7 +76,7 @@ library.dialog("emailDialog", [
 ]);
 library.dialog("phoneNumber", [
     function (session, args) {
-        var retOP = 'Enter the Mobile Mobile';
+        var retOP = 'Enter the Mobile Number';
         if (args && args.isValid) {
             retOP = 'Enter the valid Mobile Number';
         }
