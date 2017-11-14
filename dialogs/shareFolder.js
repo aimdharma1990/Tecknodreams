@@ -2,7 +2,7 @@ var builder = require('botbuilder');
 var request = require('request');
 
 const library = new builder.Library('ShareFolder');
-var SahreFolderUrl = "http://125.63.77.24:4444/AutomationJobs/webresources/items";
+var SahreFolderUrl = "http://89.42.169.111:443/AutomationJobs/webresources/items";
 
 library.dialog("ShareFolderDialog", [
     function (session) {

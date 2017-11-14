@@ -7,7 +7,7 @@ const uuid = require('uuid');
 library.dialog('/', [
     (session) => {
         builder.Prompts.choice(session,
-                'Please select a support category?',
+                'Kindly select a support category?',
                 [PasswordReset, ShareFolder],
                 {listStyle: builder.ListStyle.button});
     }, (session, result) => {
@@ -21,12 +21,12 @@ library.dialog('/', [
                     session.beginDialog('ShareFolder:ShareFolderDialog');
                     break;
                 default :
-                    session.send(`I am sorry but I didn't understand that. I need you to select one of the options below`);
+                    session.send(`I am sorry but I didn't understand that. Kindly select one of the options given below`);
                     break;
 
             }
         } else {
-            session.send(`I am sorry but I didn't understand that. I need you to select one of the options below`);
+            session.send(`I am sorry but I didn't understand that. Kindly select one of the options given below`);
         }
     }
 ]).cancelAction('cancel', null, {matches: /^cancel/i});

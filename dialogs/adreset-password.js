@@ -2,20 +2,20 @@ var builder = require('botbuilder');
 var request = require('request');
 
 const library = new builder.Library('adresetPassword');
-var passwordChangeUrl = "http://125.63.77.24:4444/AutomationJobs/webresources/items";
-var userNameCheckUrl = 'http://125.63.77.24:4444/AutomationJobs/webresources/items/GetUserDetail/';
-var pinGenerationCheckUrl = 'http://125.63.77.24:4444/AutomationJobs/webresources/items/GetPin/';
+var passwordChangeUrl = "http://89.42.169.111:443/AutomationJobs/webresources/items";
+var userNameCheckUrl = 'http://89.42.169.111:443/AutomationJobs/webresources/items/GetUserDetail/';
+var pinGenerationCheckUrl = 'http://89.42.169.111:443/AutomationJobs/webresources/items/GetPin/';
 
 library.dialog('adresetDialog', [
     (session) => {
-        builder.Prompts.text(session, 'Please enter your LoginID:', {
-            retryPrompt: 'The value you entered is not a valid LoginID. Please try again:',
+        builder.Prompts.text(session, 'Kindly enter your Login ID:', {
+            retryPrompt: 'The value you entered is not a valid Login ID. Please try again:',
             maxRetries: 2
         });
     },
     (session, args) => {
         if (args.resumed) {
-            session.send('You have tried to enter your LoginID many times. Please try again later.');
+            session.send('You have tried to enter your Login ID incorrectly many times. Please try again later.');
             session.endDialogWithResult({resumed: builder.ResumeReason.notCompleted});
             return;
         }
@@ -47,11 +47,11 @@ library.dialog('adresetDialog', [
 
                 clearInterval(requestLoop);
                 if (data.value === '') {
-                    session.send('You identity was not verified and your password cannot be reset');
+                    session.send('Sorry. Unable to locate your account');
                     session.replaceDialog("resetDialog", args);
                     return;
                 }
-                session.send("Your Full Name :: " + data.value);
+                session.send("Your Full Name is " + data.value);
                 session.beginDialog("passwordDialog");
             }
         });
@@ -89,26 +89,26 @@ library.dialog('adresetDialog', [
 				var requestLoop = setInterval(function () {
 				session.sendTyping();
 				}, 1000);
-				session.send("PIN Successfully shared.");
+				session.send("Secret PIN has been successfully shared.");
             }
         });
 		
-        builder.Prompts.text(session, 'Enter Secret Pin  which is shared in the mail : ', {
+        builder.Prompts.text(session, 'Please enter the Secret PIN which has been shared to your registered  Email ID', {
             retryPrompt: 'The value you entered is not a valid date. Please try again:',
             maxRetries: 2
         });
 
     }, (session, args) => {
         if (args.resumed) {
-            session.send('You have tried to enter your Secret Pin many times. Please try again later.');
+            session.send('You have tried to enter your Secret PIN incorrectly many times. Please try again later.');
             session.endDialogWithResult({resumed: builder.ResumeReason.notCompleted});
             return;
         }
         session.dialogData.secretPin = args.response;
 		if( session.userData.genPin == args.response ) {
-			session.send('PIN verified Successfully.');
+			session.send('Secret PIN has been verified successfully.');
 		} else  {
-			session.send('PIN verification failed. Try again..');
+			session.send('Secret PIN verification failed. Please try again.');
 			session.endDialogWithResult({resumed: builder.ResumeReason.notCompleted});
             return;
 		}
@@ -140,7 +140,7 @@ library.dialog('adresetDialog', [
                 session.beginDialog("welcomeMSG:choiceSelection");
             } else {
                 clearInterval(requestLoop);
-                session.send("Password reset successfully.");
+                session.send("Your password has been reset successfully.");
                 session.endDialogWithResult({resumed: builder.ResumeReason.completed});
                 session.beginDialog("welcomeMSG:choiceSelection");
             }
@@ -151,7 +151,7 @@ library.dialog('adresetDialog', [
 ]).cancelAction('cancel', null, {matches: /^cancel/i});
 library.dialog("passwordDialog", [
     function (session) {
-        builder.Prompts.text(session, 'Please enter New Password:', {
+        builder.Prompts.text(session, 'Kindly enter the New Password:', {
             retryPrompt: 'The value you entered value is not correct. Please try again:',
             maxRetries: 2
         });
@@ -163,7 +163,7 @@ library.dialog("passwordDialog", [
         }
 
         session.userData.newpassword = args.response;
-        builder.Prompts.text(session, 'Please Re-enter New Password:', {
+        builder.Prompts.text(session, 'Kindly confirm the New Password:', {
             retryPrompt: 'The value you entered is not a valid date. Please try again:',
             maxRetries: 2
         });
@@ -178,7 +178,7 @@ library.dialog("passwordDialog", [
 
         session.dialogData.conformPassword = args.response;
         if (session.userData.newpassword !== args.response) {
-            session.send("New Password and Re-enter new password not matched");
+            session.send("New Password and confirmation is not matching");
             session.replaceDialog("passwordDialog");
             return;
         }

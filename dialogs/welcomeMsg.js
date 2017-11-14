@@ -5,14 +5,14 @@ const Enquiry = "Enquiry";
 const library = new builder.Library('welcomeMSG');
 library.dialog('WelcomeMSGDialog', [
     (session) => {
-        builder.Prompts.text(session, 'Hi, Kindly share with me the below information so i may assist you.Please specify your Name', {
+        builder.Prompts.text(session, 'Hi, Please confirm your identity. \nKindly enter your Login ID', {
             retryPrompt: 'The value you entered is not a valid Name. Please try again:',
             maxRetries: 2
         });
     },
     (session, args) => {
         if (args.resumed) {
-            session.send('You have tried to enter your Name many times. Please try again later.');
+            session.send('You have tried to enter your Name incorrectly many times. Please try again later.');
             session.endDialogWithResult({resumed: builder.ResumeReason.notCompleted});
             return;
         }
@@ -22,7 +22,7 @@ library.dialog('WelcomeMSGDialog', [
     },
     (session, args) => {
         if (args.resumed) {
-            session.send('You have tried to enter your email many times. Please try again later.');
+            session.send('You have tried to enter your Email ID incorrectly many times. Please try again later.');
             session.endDialogWithResult({resumed: builder.ResumeReason.notCompleted});
             return;
         }
@@ -36,7 +36,7 @@ library.dialog('WelcomeMSGDialog', [
         });
     }, (session, args) => {
         if (args.resumed) {
-            session.send('You have tried to enter your Company Name many times. Please try again later.');
+            session.send('You have tried to enter your Company Name incorrectly many times. Please try again later.');
             session.endDialogWithResult({resumed: builder.ResumeReason.notCompleted});
             return;
         }
@@ -46,7 +46,7 @@ library.dialog('WelcomeMSGDialog', [
 
     }, (session, args) => {
         if (args.resumed) {
-            session.send('You have tried to enter your mobile number many times. Please try again later.');
+            session.send('You have tried to enter your Mobile Number incorrectly many times. Please try again later.');
             session.endDialogWithResult({resumed: builder.ResumeReason.notCompleted});
             return;
         }
@@ -57,12 +57,12 @@ library.dialog('WelcomeMSGDialog', [
 
 library.dialog("emailDialog", [
     function (session, args) {
-        var retryOp = 'Could you please provide your Email ID:';
+        var retryOp = 'Kindly enter your Email ID:';
         if (args && args.isValid === true) {
             retryOp = 'Please provide your Valid Email ID:';
         }
         builder.Prompts.text(session, retryOp, {
-            retryPrompt: 'The value you entered is not a valid email. Please try again:',
+            retryPrompt: 'The value you entered is not a valid Email ID. Please try again:',
             maxRetries: 2
         });
     }, function (session, args) {
@@ -76,12 +76,12 @@ library.dialog("emailDialog", [
 ]);
 library.dialog("phoneNumber", [
     function (session, args) {
-        var retOP = 'Enter the mobile number';
+        var retOP = 'Enter the Mobile Mobile';
         if (args && args.isValid) {
-            retOP = 'Enter the valid mobile number';
+            retOP = 'Enter the valid Mobile Number';
         }
         builder.Prompts.number(session, retOP, {
-            retryPrompt: 'The value you entered is not a valid mobile number. Please try again',
+            retryPrompt: 'The value you entered is not a valid Mobile Number. Please try again',
             maxRetries: 2
         });
     }, function (session, result) {
@@ -97,7 +97,7 @@ library.dialog("phoneNumber", [
 library.dialog("choiceSelection",[
     function(session){
          builder.Prompts.choice(session,
-                'Please let me know what i can help you with?',
+                'Kindly let me know, what I may help you with?',
                 [Support, Enquiry],
                 {listStyle: builder.ListStyle.button});
     },function (session, result) {

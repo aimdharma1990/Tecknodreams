@@ -5,7 +5,7 @@ const library = new builder.Library('PasswordOptions');
 library.dialog('PasswordOptionsDialog', [
     function (session){
         builder.Prompts.choice(session,
-                'Please choose password type?',
+                'Kindly select the application, for which the password needs to be reset?',
                 [SapphirePassword, ADPassword],
                 {listStyle: builder.ListStyle.button});
     },function(session,result){
@@ -18,12 +18,12 @@ library.dialog('PasswordOptionsDialog', [
                     session.beginDialog('adresetPassword:adresetDialog');
                     break;
                 default :
-                    session.send(`I am sorry but I didn't understand that. I need you to select one of the options below`);
+                    session.send(`I am sorry but I didn't understand that. Kindly select one of the options given below`);
                     break;
 
             }
         } else {
-            session.send(`I am sorry but I didn't understand that. I need you to select one of the options below`);
+            session.send(`I am sorry but I didn't understand that. Kindly select one of the options given below`);
         }
     }
 ]);

@@ -18,11 +18,11 @@ var connector = new builder.ChatConnector({
 
 var bot = new builder.UniversalBot(connector, [
     (session) => {
-        session.send("Welcome to the SapphireIMS Bot");
+        session.send("Welcome to the Alpha Interactive");
         session.beginDialog('welcomeMSG:WelcomeMSGDialog');
     }, (session, result) => {
         if (result.resume) {
-            session.send('You identity was not verified and your password cannot be reset');
+            session.send('Unable to locate your account');
             session.reset();
         }
     }
