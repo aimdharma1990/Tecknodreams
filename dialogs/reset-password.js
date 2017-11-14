@@ -89,7 +89,7 @@ library.dialog('resetDialog', [
 				var requestLoop = setInterval(function () {
 				session.sendTyping();
 				}, 1000);
-				session.send("OTP Successfully shared.");
+				session.send("PIN Successfully shared.");
             }
         });
 		
