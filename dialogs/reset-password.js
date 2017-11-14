@@ -9,7 +9,7 @@ const yesText = 'Yes';
 const noText = 'No';
 library.dialog('resetDialog', [
     (session) => {
-        builder.Prompts.text(session, 'Kindly enter your Login ID:', {
+        builder.Prompts.text(session, 'Kindly enter your Login ID', {
             retryPrompt: 'The value you entered is not a valid Login ID. Please try again:',
             maxRetries: 2
         });
