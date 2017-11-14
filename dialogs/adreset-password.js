@@ -54,7 +54,7 @@ library.dialog('adresetDialog', [
                 }
                 session.send("Your Full Name is " + data.value);
                 builder.Prompts.choice(session,
-                        'Kindly confirm your identity?',
+                        'Kindly confirm if this is correct.',
                         [yesText, noText],
                         {listStyle: builder.ListStyle.button});
                 // session.beginDialog("passwordDialog");

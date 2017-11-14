@@ -58,9 +58,9 @@ library.dialog('WelcomeMSGDialog', [
 
 library.dialog("emailDialog", [
     function (session, args) {
-        var retryOp = 'Kindly enter your Email ID';
+        var retryOp = 'Enter your Email ID';
         if (args && args.isValid === true) {
-            retryOp = 'Please provide your Valid Email ID';
+            retryOp = 'Please provide a valid Email ID';
         }
         builder.Prompts.text(session, retryOp, {
             retryPrompt: 'The value you entered is not a valid Email ID. Please try again..',

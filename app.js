@@ -18,7 +18,7 @@ var connector = new builder.ChatConnector({
 
 var bot = new builder.UniversalBot(connector, [
     (session) => {
-        session.send("Welcome to the Alpha Interactive");
+        session.send("Welcome to Alpha Interactive");
         session.beginDialog('welcomeMSG:WelcomeMSGDialog');
     }, (session, result) => {
         if (result.resume) {
